@@ -180,7 +180,6 @@ $('#start').click(function(air){
       })
 			/*Draw Circle on map*/
       circle.addTo(mymap);
-	console.log(result);
     });
   });
 });
