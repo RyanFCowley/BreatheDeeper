@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Breathe Deeper</title>
+    <!--CSS and fonts-->
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous" rel="stylesheet">
+    <!--leaflet stuff-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <!--mapbox stuff-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
+  </head>
+  <body>
+    <!--contents of the sidebar-->
+    <div id="sidebar">
+      <h1>Breathe Deeper</h1>
+      <p id="descriptor">
+        How clean is your air?<br/><br/>
+        A webapp to display the air quality over the USA and the population density by state. Press 'Start' and coloured dots relating to the Air Quality Index will appear on the map in areas that supply the data. Hovering within a state boundry displays that states name and the  pop. density of people per square mile. The colour dots relate to:
+        <br /><br /><span id="a">0-25 AQI, Almost or completely clean air</span><br /><br /><span id="b">25-50 AQI, Satisfactory air  quality</span><br /><br /><span id="c">50-100 AQI, May effect extremely sensitive groups</span>
+        <br /><br /><span id="d">100-150 AQI, Members of sensitive groups affected</span><br /><br /><span id="e">150-200 AQI, General public risk health concerns</span><br /><br /><span id="f">200-250 AQI, Entire pop. face serious health risks</span>
+        <br /><br /><span id="g">250-300 AQI, Just dont go outside</span>
+      </p>
+
+      <button id="start">Start</button>
+      <p id="mobilelol">
+        Whoops, I forgot to make the website scalable for mobile users, my bad. This looks pretty cool on a desktop though.
+      </p>
+    </div>
+
+    <div id="info"></div>
+
+    <footer>
+      <p>
+        Matthew McArthur (@Matthewmac25),&nbsp&nbsp&nbsp&nbsp Euan Mitchell (@GuyFieriisJesus),&nbsp&nbsp&nbsp&nbsp Stuart Miller (@JK_Flip_Fl0p96),&nbsp&nbsp&nbsp&nbsp Ryan Cowley (@RyanFCowley)
+      </p>
+    </footer>
+    <!--RGUHack image-->
+    <img src="RGUHack.png" >
+    <!--map-->
+    <div id="mapid"></div>
+
+    <!--JQuery and other scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!--state borders--><script type="text/javascript" src="us-states.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+
+
+
+</html>
