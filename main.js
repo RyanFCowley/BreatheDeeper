@@ -1,7 +1,8 @@
 //===============================================================================
 //map create
 var mymap = L.map('mapid', {zoomControl: false}).setView([40, -110], 4);
-
+//when window loads, do everything
+window.onload = loadJSON;
 //setting to focus on USA and desired zoom
 mymap.bounds = [],
 mymap.setMaxBounds([
@@ -77,7 +78,7 @@ geojson = L.geoJson(statesData, {
     onEachFeature: onEachFeature
 }).addTo(mymap);
 
-
+/*Code to make poulation density appear when mousing over states*/
 var info = L.control();
 info.onAdd = function(mymap){
   this._div = L.DomUtil.create('div', 'info');
@@ -90,7 +91,10 @@ info.update = function(props){
   '<b>' + props.name + '</b><br />' +props.density + ' people / mi<sup>2</sup>'
   : 'Hover over a state');
 };
+/*add population data to map*/
 info.addTo(mymap);
+
+
 
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function(mymap){
@@ -98,7 +102,7 @@ legend.onAdd = function(mymap){
   grades = [0, 10, 20, 50, 100, 200, 500, 1000],
   labels = [];
 
-/*All this does is break things so keep it locked up in this comment. 25 to life. solitary confinment xD
+/*All this does is break things so keep it locked up in this comment. 25 to life. solitary confinment
 for(var i = 0; i < grades.length; i++){
   div.innerHTML +=
     '<i style="background:' + getColour(grades[i] + 1) + '"></i> '+
@@ -114,9 +118,9 @@ legend.addTo(mymap);
 //===============================================================================
 
 
-/* DON'T TOUCH THIS OR I WILL RIP YOUR HEART OUT-------------------------------------------------------------------------*/
-/*When button is clicked*/
-$('#start').click(function(air){
+
+/*function to load everything when site is opened*/
+function loadJSON(air){
 
 
 /*Get the JSON from the API*/
@@ -131,6 +135,7 @@ $('#start').click(function(air){
 
 	var ql = thing.aqi;
 
+  /*fuction for assigning air quality to levels*/
 	function getLevel(ql){
 		return ql > 300 ? 7:
 		 	ql > 200 ? 6:
@@ -168,20 +173,52 @@ $('#start').click(function(air){
       var circle = L.circle([lat,lng],{
 
 
-	 		/*Make 'em colourful*/
+	 		/*assign colour based on level*/
         color: getColour(level),
-				/*Fill 'em colourful*/
+				/*Fill them with the assigned colour*/
         fillColor: getColour(level),
 				/*make 'em see through*/
         fillOpacity: 0.5,
 
-				/*make it radius out*/
+				/*if the level is high, increase radius*/
         radius: getRadius(level)
       })
 			/*Draw Circle on map*/
       circle.addTo(mymap);
-    });
+
+      circle.onclick = function(){
+
+
+        console.log("it works");
+        result.data.forEach(function(thing){
+          //set new variable to aqi level
+          var airQuality = thing.aqi;
+          //return the air quality value
+          return airQuality;
+
+
+        });
+      }
+
+
+
+
   });
 });
+}
+//when you click a circle, retrieve its pollutant level
+/*
+$(circle).click(function(ql){
+  $.getJSON("https://api.waqi.info/map/bounds/?latlng=28.70,-127.50,48.85,-55.90&token=ad9b0d10be0a4d6028e3724fc9d4f7e24a429d85", function(result){
+    //loop through all the JSON data and get the air quality levels
+      result.data.forEach(function(thing){
+        //set new variable to aqi level
+        var airQuality = thing.aqi;
+        //return the air quality value
+        return airQuality;
 
-/* okay we cool -------------------------------------------------------------------------------------------------------*/
+
+      });
+    });
+  });
+*/

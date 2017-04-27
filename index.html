@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
   <head>
     <title>Breathe Deeper</title>
     <!--CSS and fonts-->
     <link rel="stylesheet" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous" rel="stylesheet">
-    <!--leaflet stuff-->
+    <!--leaflet links for map-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <!--mapbox stuff-->
@@ -24,7 +25,9 @@
         <br /><br /><span id="g">250-300 AQI, Just dont go outside</span>
       </p>
 
-      <button id="start">Start</button>
+      <!--<button id="start">Start</button>-->
+
+      <!-- If the user is using a mobile device -->
       <p id="mobilelol">
         Whoops, I forgot to make the website scalable for mobile users, my bad. This looks pretty cool on a desktop though.
       </p>
@@ -37,8 +40,7 @@
         Euan Mitchell (@GuyFieriisJesus),&nbsp&nbsp&nbsp&nbsp Ryan Cowley (@RyanFCowley)
       </p>
     </footer>
-    <!--RGUHack image-->
-    <img src="RGUHack.png" >
+
     <!--map-->
     <div id="mapid"></div>
 

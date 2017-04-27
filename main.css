@@ -48,6 +48,7 @@ h1{
   font-size: 13px;
 }
 /*formatting buttons*/
+/*
 button{
 
   background-color: inherit;
@@ -63,7 +64,7 @@ button{
 button:active{
   opacity: 0.5;
 }
-
+*/
 #a{
   color:#009966;
 }
@@ -95,12 +96,6 @@ footer{
   font-size: 8px;
 }
 
-
-img{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-}
 
 .info{
   position: fixed;
