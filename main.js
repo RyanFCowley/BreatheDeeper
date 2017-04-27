@@ -1,7 +1,7 @@
 //===============================================================================
 //map create
 var mymap = L.map('mapid', {zoomControl: false}).setView([40, -110], 4);
-//when window loads, do everything
+//when window loads, run JSON function
 window.onload = loadJSON;
 //setting to focus on USA and desired zoom
 mymap.bounds = [],
@@ -182,13 +182,17 @@ function loadJSON(air){
 
 				/*if the level is high, increase radius*/
         radius: getRadius(level)
+
+
+
+
       })
 			/*Draw Circle on map*/
       circle.addTo(mymap);
 
       circle.onclick = function(){
 
-
+        //test log
         console.log("it works");
         result.data.forEach(function(thing){
           //set new variable to aqi level
