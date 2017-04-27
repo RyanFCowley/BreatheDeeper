@@ -185,6 +185,40 @@ function loadJSON(air){
       })
 			/*Draw Circle on map*/
       circle.addTo(mymap);
+
+      circle.onclick = function(){
+
+
+        console.log("it works");
+        result.data.forEach(function(thing){
+          //set new variable to aqi level
+          var airQuality = thing.aqi;
+          //return the air quality value
+          return airQuality;
+
+
+        });
+      }
+
+
+
+
+  });
+});
+}
+//when you click a circle, retrieve its pollutant level
+/*
+$(circle).click(function(ql){
+  $.getJSON("https://api.waqi.info/map/bounds/?latlng=28.70,-127.50,48.85,-55.90&token=ad9b0d10be0a4d6028e3724fc9d4f7e24a429d85", function(result){
+    //loop through all the JSON data and get the air quality levels
+      result.data.forEach(function(thing){
+        //set new variable to aqi level
+        var airQuality = thing.aqi;
+        //return the air quality value
+        return airQuality;
+
+
+      });
     });
   });
-};
+*/
