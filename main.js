@@ -183,12 +183,6 @@ function loadJSON(air){
 	/*if the level is high, increase radius*/
         radius: getRadius(level)
 
-
-
-
-      });
-      
-	  
 	 circle.onclick = function(){
 
         //test log
@@ -201,9 +195,15 @@ function loadJSON(air){
 
 
         }
+
+
+      });
+      
+	  
+	
 	/*Draw Circle on map*/
       circle.addTo(mymap);
-      circle.bringToFront();
+      //circle.bringToFront();
       
       
 
@@ -211,7 +211,7 @@ function loadJSON(air){
 
 
   });
-//});
+});
 }
 //when you click a circle, retrieve its pollutant level
 /*
