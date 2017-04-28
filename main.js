@@ -187,10 +187,9 @@ function loadJSON(air){
 
 
       });
-      /*Draw Circle on map*/
-      circle.addTo(mymap);
-      circle.bringToFront();
-      circle.onclick = function(){
+      
+	  
+	  circle.onclick = function(){
 
         //test log
         //console.log("it works");
@@ -202,6 +201,10 @@ function loadJSON(air){
 
 
         }
+	/*Draw Circle on map*/
+      circle.addTo(mymap);
+      circle.bringToFront();
+      
       
 
 
