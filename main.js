@@ -181,7 +181,7 @@ function loadJSON(air){
         fillOpacity: 0.5,
 
 	/*if the level is high, increase radius*/
-        radius: getRadius(level)
+        radius: getRadius(level),
 
 	 circle.onclick = function(){
 
