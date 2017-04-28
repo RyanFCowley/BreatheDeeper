@@ -169,25 +169,25 @@ function loadJSON(air){
 
 	var level = getLevel(ql);
 
-			/*Draw circles*/
+      /*Draw circles*/
       var circle = L.circle([lat,lng],{
 
 
-	 		/*assign colour based on level*/
+	/*assign colour based on level*/
         color: getColour(level),
-				/*Fill them with the assigned colour*/
+	/*Fill them with the assigned colour*/
         fillColor: getColour(level),
-				/*make 'em see through*/
+	/*make 'em see through*/
         fillOpacity: 0.5,
 
-				/*if the level is high, increase radius*/
+	/*if the level is high, increase radius*/
         radius: getRadius(level)
 
 
 
 
       });
-			/*Draw Circle on map*/
+      /*Draw Circle on map*/
       circle.addTo(mymap);
       circle.bringToFront();
       circle.onclick = function(){
@@ -198,7 +198,7 @@ function loadJSON(air){
           //set new variable to aqi level
           //var airQuality = thing.aqi;
           //return the air quality value
-          alert("Level of pollution:");
+          alert("Level of pollution: not available");
 
 
         }
