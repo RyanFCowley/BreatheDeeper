@@ -54,8 +54,9 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         //layer.bringToFront();
     }
-    info.update(layer.feature.properties);
     */
+    info.update(layer.feature.properties);
+    
 }
 
 //when you mouse off a tile, un-highlight it
