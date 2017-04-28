@@ -193,12 +193,12 @@ function loadJSON(air){
       circle.onclick = function(){
 
         //test log
-        console.log("it works");
-        result.data.forEach(function(thing){
+        //console.log("it works");
+        //result.data.forEach(function(thing){
           //set new variable to aqi level
-          var airQuality = thing.aqi;
+          //var airQuality = thing.aqi;
           //return the air quality value
-          window.alert("Level of pollution: " & airQuality);
+          window.alert("Level of pollution:");
 
 
         });
