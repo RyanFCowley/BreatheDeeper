@@ -201,7 +201,7 @@ function loadJSON(air){
           window.alert("Level of pollution:");
 
 
-        });
+        }
       }
 
 
