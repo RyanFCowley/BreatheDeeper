@@ -1,7 +1,11 @@
-Totally not hackathon
+=================================================
+Click on a circle to get info
 
-hey euan
+Mouse over a state to get population density info in top-right
 
+Click on a state to zoom in
 
-
-get out of my head globalists!
+API being used: AQICN
+=================================================
+Disclaimer:
+THIS COULD NOT HAVE BEEN COMPLETED WITHOUT DR JOHN ISAACS, MANY THANKS FOR THE HELP!
