@@ -198,7 +198,7 @@ function loadJSON(air){
           //set new variable to aqi level
           var airQuality = thing.aqi;
           //return the air quality value
-          return airQuality;
+          window.alert("Level of pollution: " & airQuality);
 
 
         });
