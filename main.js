@@ -192,7 +192,7 @@ function loadJSON(air){
 	 circle.onclick = function(){
 
         //test log
-        //console.log("it works");
+        console.log("it works");
         //result.data.forEach(function(thing){
           //set new variable to aqi level
           //var airQuality = thing.aqi;
@@ -211,7 +211,7 @@ function loadJSON(air){
 
 
   });
-});
+//});
 }
 //when you click a circle, retrieve its pollutant level
 /*
