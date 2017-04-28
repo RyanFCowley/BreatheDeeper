@@ -21,7 +21,9 @@ var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/
 	subdomains: 'abcd',
 	maxZoom: 19
 });
+//display our glorious map
 CartoDB_DarkMatter.addTo(mymap);
+
 
 //===============================================================================
 //border outlines
@@ -46,12 +48,17 @@ function highlightFeature(e) {
         fillOpacity: 0.1
     });
 
+/*
+  --commented out so as to allow circles to be above the map layers--
+
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
+        //layer.bringToFront();
     }
     info.update(layer.feature.properties);
+    */
 }
 
+//when you mouse off a tile, un-highlight it
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
     info.update();
@@ -65,6 +72,7 @@ function zoomToFeature(e) {
     mymap.fitBounds(e.target.getBounds());
 }
 
+//mousing over and clicking on state tiles
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
@@ -73,10 +81,12 @@ function onEachFeature(feature, layer) {
     });
 }
 
+//load the state boundaries onto map tile
 geojson = L.geoJson(statesData, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(mymap);
+
 
 /*Code to make poulation density appear when mousing over states*/
 var info = L.control();
@@ -86,6 +96,7 @@ info.onAdd = function(mymap){
   return this._div;
 };
 
+//format the pop density counter
 info.update = function(props){
   this._div.innerHTML = '<h4>US Population Density</h4>'+ (props ?
   '<b>' + props.name + '</b><br />' +props.density + ' people / mi<sup>2</sup>'
@@ -133,7 +144,7 @@ function loadJSON(air){
       var lng = thing.lon;
       var lat = thing.lat;
 
-	var ql = thing.aqi;
+	    var ql = thing.aqi;
 
   /*fuction for assigning air quality to levels*/
 	function getLevel(ql){
@@ -143,11 +154,12 @@ function loadJSON(air){
 			ql > 100 ? 4:
 			ql > 50  ? 3:
 			ql > 25  ? 2:
-				    1;
+			ql >= 0  ? 1:
+        0;
 	}
 
 
-
+  //set colour based on level
 	function getColour(lvl){
 		return lvl == 7  ?  '#7e0023':
 			lvl == 6  ?  '#660099':
@@ -159,16 +171,21 @@ function loadJSON(air){
 	}
 
 
-
+  //set radius of circle
 	function getRadius(lvl){
 		return 5000 + ((lvl - 1)*1500);
 	}
 
 
 
-
+  //set level to aqi data
 	var level = getLevel(ql);
 
+  if (getLevel(ql) < 0){
+    ql.level = 0;
+  }
+
+console.log(ql);
       /*Draw circles*/
       var circle = L.circle([lat,lng],{
 
@@ -183,49 +200,38 @@ function loadJSON(air){
 	/*if the level is high, increase radius*/
         radius: getRadius(level),
 
-	 circle.onclick = function(){
+        riseOnHover: true,
 
-        //test log
-        console.log("it works");
-        //result.data.forEach(function(thing){
-          //set new variable to aqi level
-          //var airQuality = thing.aqi;
-          //return the air quality value
-          alert("Level of pollution: not available");
-
-
-        }
-
-
+      level:ql
       });
-      
-	  
-	
-	/*Draw Circle on map*/
-      circle.addTo(mymap);
-      //circle.bringToFront();
-      
-      
 
 
 
 
-  });
+
+	     /*Draw Circle on map*/
+      circle.addTo(mymap).on("click", circleClick);
+      circle.bringToFront();
+
+});
 });
 }
-//when you click a circle, retrieve its pollutant level
-/*
-$(circle).click(function(ql){
-  $.getJSON("https://api.waqi.info/map/bounds/?latlng=28.70,-127.50,48.85,-55.90&token=ad9b0d10be0a4d6028e3724fc9d4f7e24a429d85", function(result){
-    //loop through all the JSON data and get the air quality levels
-      result.data.forEach(function(thing){
-        //set new variable to aqi level
-        var airQuality = thing.aqi;
-        //return the air quality value
-        return airQuality;
+//when clicking a circle
+function circleClick(e) {
+
+    var clickedCircle = e.target;
+
+    //logs for testing
+    console.log(e.target);
+
+    console.log(clickedCircle.options.level);
 
 
-      });
-    });
-  });
-*/
+     //display the air quality in a pop up box
+     clickedCircle.bindPopup("Pollution level: " + clickedCircle.options.level + "ppm/m" + '<sup>3</sup>').openPopup();
+
+
+
+
+
+}
