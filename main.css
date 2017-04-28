@@ -65,6 +65,8 @@ button:active{
   opacity: 0.5;
 }
 */
+
+/*Each letter is a line on the side bar*/
 #a{
   color:#009966;
 }
@@ -87,6 +89,11 @@ button:active{
   color:#7e0023;
 }
 
+#h{
+  font-size: 10px;
+}
+
+/*format the "credits" at the bottom*/
 footer{
   position: absolute;
   bottom: 0;
@@ -96,7 +103,7 @@ footer{
   font-size: 8px;
 }
 
-
+/*pop density layout*/
 .info{
   position: fixed;
   top: 0;
@@ -108,7 +115,7 @@ footer{
   margin: 0 0 5px;
   color:white;
 }
-
+/*side bar layout*/
 .legend{
   line-height: 18px;
   color: #555;
@@ -122,6 +129,7 @@ footer{
   opacity: 0.7;
 }
 
+/*message for mobile users*/
 #mobilelol{
   padding-top: 75%;
 }
