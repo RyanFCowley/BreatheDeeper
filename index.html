@@ -2,16 +2,21 @@
 <meta charset="UTF-8">
 <html>
   <head>
+
     <title>Breathe Deeper</title>
+
     <!--CSS and fonts-->
     <link rel="stylesheet" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous" rel="stylesheet">
+
     <!--leaflet links for map-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
     <!--mapbox stuff-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
+
   </head>
   
   <!--konami code stuff-->
@@ -24,8 +29,7 @@
                                 state++;
                                 else state = 0;
                                 if (state == 10)
-                                  window.location = "https://breathedeeper.azurewebsites.net";
-                                  alert("test");
+                                  window.location = "https://www.youtube.com/watch?v=qUEy55r49fY";
     }, true);
     }
   </script>
@@ -36,6 +40,7 @@
     <!--contents of the sidebar-->
     <div id="sidebar">
       <h1>Breathe Deeper</h1>
+      <!--horrendous block of text incoming-->
       <p id="descriptor">
         How clean is your air?<br/><br/>
         This web-app shows the air quality across the USA and how it relates to the population density of each state. The coloured dots represent each air monitoring station in the US. Hovering within a state boundry displays that states name and the population density of people per square mile.
@@ -43,6 +48,7 @@
         <br /><br /><span id="a">0-25 AQI, Almost or completely clean air</span><br /><br /><span id="b">25-50 AQI, Satisfactory air  quality</span><br /><br /><span id="c">50-100 AQI, May effect extremely sensitive groups</span>
         <br /><br /><span id="d">100-150 AQI, Members of sensitive groups affected</span><br /><br /><span id="e">150-200 AQI, General public risk health concerns</span><br /><br /><span id="f">200-250 AQI, Entire pop. face serious health risks</span>
         <br /><br /><span id="g">250-300 AQI, Just dont go outside</span>
+        <br /><br /><span id = "h">Negative AQI value, Station not currently recording data</span>
       </p>
 
       <!--<button id="start">Start</button>-->
@@ -53,20 +59,26 @@
       </p>
     </div>
 
+    <!--pop density display goes here-->
     <div id="info"></div>
 
+    <!--create footer for credits-->
     <footer>
       <p>
-        Euan Mitchell (@GuyFieriisJesus),&nbsp&nbsp&nbsp&nbsp Ryan Cowley (@RyanFCowley)
+        Created by RGU students: Euan Mitchell | Sam Michie | Jan Stanton | Mhairi Stewart | Ryan Cowely | 2017
       </p>
     </footer>
 
-    <!--map-->
+
+    <!--map goes here-->
     <div id="mapid"></div>
+
 
     <!--JQuery and other scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!--state borders--><script type="text/javascript" src="us-states.js"></script>
+    <!--state borders-->
+    <script type="text/javascript" src="us-states.js"></script>
+    <!--main js file-->
     <script src="main.js"></script>
 
   </body>
