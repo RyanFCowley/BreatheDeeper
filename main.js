@@ -1,7 +1,7 @@
 //===============================================================================
 //map create
 var mymap = L.map('mapid', {zoomControl: false}).setView([40, -110], 4);
-//when window loads, do everything
+//when window loads, run JSON function
 window.onload = loadJSON;
 //setting to focus on USA and desired zoom
 mymap.bounds = [],
@@ -169,36 +169,43 @@ function loadJSON(air){
 
 	var level = getLevel(ql);
 
-			/*Draw circles*/
+      /*Draw circles*/
       var circle = L.circle([lat,lng],{
 
 
-	 		/*assign colour based on level*/
+	/*assign colour based on level*/
         color: getColour(level),
-				/*Fill them with the assigned colour*/
+	/*Fill them with the assigned colour*/
         fillColor: getColour(level),
-				/*make 'em see through*/
+	/*make 'em see through*/
         fillOpacity: 0.5,
 
-				/*if the level is high, increase radius*/
+	/*if the level is high, increase radius*/
         radius: getRadius(level)
-      })
-			/*Draw Circle on map*/
+
+
+
+
+      });
+      
+	  
+	 circle.onclick = function(){
+
+        //test log
+        //console.log("it works");
+        //result.data.forEach(function(thing){
+          //set new variable to aqi level
+          //var airQuality = thing.aqi;
+          //return the air quality value
+          alert("Level of pollution: not available");
+
+
+        }
+	/*Draw Circle on map*/
       circle.addTo(mymap);
       circle.bringToFront();
-      circle.onclick = function(){
-
-
-        console.log("it works");
-        result.data.forEach(function(thing){
-          //set new variable to aqi level
-          var airQuality = thing.aqi;
-          //return the air quality value
-          return airQuality;
-
-
-        });
-      }
+      
+      
 
 
 

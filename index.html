@@ -13,13 +13,32 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
   </head>
+  
+  <!--konami code stuff-->
+  <script type="text/javascript">
+    if (window.addEventlistener){
+      var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
+      
+      window.addEventListener("keydown", function(e){
+                              if(e.keyCode==konami[state])
+                                state++;
+                                else state = 0;
+                                if (state == 10)
+                                  window.location = "http://homelyorhaunted.azurewebsites.net/home.html";
+    }, true);
+    }
+  </script>
+        
+      
+  
   <body>
     <!--contents of the sidebar-->
     <div id="sidebar">
       <h1>Breathe Deeper</h1>
       <p id="descriptor">
         How clean is your air?<br/><br/>
-        A webapp to display the air quality over the USA and the population density by state. Press 'Start' and coloured dots relating to the Air Quality Index will appear on the map in areas that supply the data. Hovering within a state boundry displays that states name and the  pop. density of people per square mile. The colour dots relate to:
+        This web-app shows the air quality across the USA and how it relates to the population density of each state. The coloured dots represent each air monitoring station in the US. Hovering within a state boundry displays that states name and the population density of people per square mile.
+        The term 'AQI' stands for 'Air Quality Index' and is measured in PM2.5 - basically, particulate matter density or pollution in the air. The colour of the dots relates to the level of pollution:
         <br /><br /><span id="a">0-25 AQI, Almost or completely clean air</span><br /><br /><span id="b">25-50 AQI, Satisfactory air  quality</span><br /><br /><span id="c">50-100 AQI, May effect extremely sensitive groups</span>
         <br /><br /><span id="d">100-150 AQI, Members of sensitive groups affected</span><br /><br /><span id="e">150-200 AQI, General public risk health concerns</span><br /><br /><span id="f">200-250 AQI, Entire pop. face serious health risks</span>
         <br /><br /><span id="g">250-300 AQI, Just dont go outside</span>
