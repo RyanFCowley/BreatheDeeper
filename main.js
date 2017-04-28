@@ -189,7 +189,7 @@ function loadJSON(air){
       });
       
 	  
-	  circle.onclick = function(){
+	 circle.onclick = function(){
 
         //test log
         //console.log("it works");
